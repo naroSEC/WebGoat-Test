@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				script {
 					sh "chmod 777 ./*"
-                    sh "mvnw clean package"
+                    sh "./mvnw clean package"
 				}
 			}
 		}
