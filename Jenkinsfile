@@ -32,16 +32,16 @@ pipeline {
 			}
 		}
 
-		stage('SonarQube Start!') {
+		stage('SAST') {
 			steps{
 				script{
-					def URL = env.GIT_URL
-					def BRANCH = env.GIT_BRANCH
+					def GIT_URL = env.GIT_URL
+					def GET_BRANCH = env.GIT_BRANCH
 
-					build job: 'security_job', parameters:[
-						string(name: 'GITURL', value: URL),
-						string(name: 'BRANCH', value: BRANCH),
-						string(name: 'REPO', value: REPO_NAME)
+					build job: 'SAST-SonarQube', parameters:[
+						string(name: 'GIT_URL', value: GIT_URL),
+						string(name: 'GIT_BRANCH', value: GIT_BRANCH),
+						string(name: 'GIT_REPONAME', value: gitRepoName)
 					]
 				}
 			}
