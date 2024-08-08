@@ -20,7 +20,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				script {
-					sh "chmod 777 ./*"
+					sh "chmod u+x ./mvnw"
                     sh "./mvnw clean package"
 				}
 			}
@@ -39,7 +39,7 @@ pipeline {
 					def BRANCH = env.GIT_BRANCH
 
 					build job: 'security_job', parameters:[
-						string(name: 'URL', value: URL),
+						string(name: 'GITURL', value: URL),
 						string(name: 'BRANCH', value: BRANCH),
 						string(name: 'REPO', value: REPO_NAME)
 					]
