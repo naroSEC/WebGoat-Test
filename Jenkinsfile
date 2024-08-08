@@ -36,7 +36,7 @@ pipeline {
 			steps{
 				script{
 					def GIT_URL = env.GIT_URL
-					def GET_BRANCH = env.GIT_BRANCH
+					def GIT_BRANCH = env.GIT_BRANCH
 
 					build job: 'SAST-SonarQube', parameters:[
 						string(name: 'GIT_URL', value: GIT_URL),
